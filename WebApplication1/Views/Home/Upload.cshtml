@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+<h2>@ViewBag.Title.</h2>
+
+<p>Upload your videos using this form.</p>
+
+<form action="@ViewBag.upload_data.upload_link_secure" method="post" enctype="multipart/form-data">
+
+    <p>The following text fields are showm for illustrative purposes. Keep these hidden.</p>
+    <input type="text" name="key" value="@ViewBag.upload_data.key" /><br />
+    <input type="text" name="X-Amz-Credential" value="@ViewBag.upload_data["x-amz-credential"]" /><br />
+    <input type="text" name="X-Amz-Algorithm" value="@ViewBag.upload_data["x-amz-algorithm"]" /><br />
+    <input type="text" name="X-Amz-Date" value="@ViewBag.upload_data["x-amz-date"]" /><br />
+    <input type="text" name="Policy" value='@ViewBag.upload_data.policy' /><br />
+    <input type="text" name="X-Amz-Signature" value="@ViewBag.upload_data["x-amz-signature"]" /><br />
+    <input type="text" name="success_action_status" value="201" />
+    <input type="text" name="success_action_redirect" value="https://example.com/" />
+    File:
+    <input type="file" name="file" accept="video/*" /> <br />
+    <!-- The elements after this will be ignored -->
+    <input type="submit" name="submit" value="Upload to Amazon S3" />
+</form>
